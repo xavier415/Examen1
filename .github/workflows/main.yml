@@ -18,7 +18,4 @@ jobs:
 
     - name: Deploy to Surge
       run: |
-
         surge --project ./ --domain miwebxavier.surge.sh --token 3b8a2a84947c8ad4f76aec5c82457991
-
-        
