@@ -3,7 +3,7 @@ name: Deploy to Surge
 on:
   push:
     branches:
-      - main  # Puedes cambiar 'master' por 'main' si tu rama principal es 'main'
+      - main
 
 jobs:
   deploy:
@@ -18,6 +18,6 @@ jobs:
 
     - name: Deploy to Surge
       env:
-        SURGE_LOGIN: ${{ secrets.SURGE_EMAIL }} # Email registrado en Surge.sh
-        SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }} # API Key generada en Surge
+        SURGE_LOGIN: ${{ secrets.SURGE_EMAIL }}  # Correo registrado en Surge.sh
+        SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}  # API Key generada en Surge
       run: surge --project ./ --domain ${{ secrets.SURGE_SUBDOMAIN }}.surge.sh --token $SURGE_TOKEN
