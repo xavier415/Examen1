@@ -18,6 +18,6 @@ jobs:
 
     - name: Deploy to Surge
       env:
-        SURGE_LOGIN: ${{ secrets.xaviercolon061@gmail.com }} # Email registrado en Surge.sh
-        SURGE_TOKEN: ${{ secrets.60a133de789c437f6c466bc5a47609c0 }} # API Key generada en Surge
-      run: surge --project ./ --domain ${{ secrets.miwebxavier }}.surge.sh --token $SURGE_TOKEN
+        SURGE_LOGIN: ${{ secrets.SURGE_EMAIL }} # Email registrado en Surge.sh
+        SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }} # API Key generada en Surge
+      run: surge --project ./ --domain ${{ secrets.SURGE_SUBDOMAIN }}.surge.sh --token $SURGE_TOKEN
