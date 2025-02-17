@@ -13,11 +13,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Build and Deploy
-      run: |
-        # Configurar Surge.sh
-        npm install --global surge
-        surge token 3b8a2a84947c8ad4f76aec5c82457991 # Reemplazar <SURGE_API_KEY> con la API Key de Surge de cada estudiante
+    - name: Install Surge
+      run: npm install --global surge
 
-        # Desplegar en Surge.sh
-        surge --project ./ --domain miwebxavier.surge.sh # Reemplazar <SURGE_SUBDOMAIN> con un subdominio único para cada estudiante
+    - name: Deploy to Surge
+      run: |
+        surge --project ./ --domain miwebxavier.surge.sh --token ${{ secrets.SURGE_TOKEN }}
