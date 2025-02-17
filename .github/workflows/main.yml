@@ -3,7 +3,7 @@ name: Deploy to Surge
 on:
   push:
     branches:
-      - main  # Asegúrate de usar 'main' si tu rama principal es 'main'
+      - main  # O usa la rama que prefieras
 
 jobs:
   deploy:
@@ -16,11 +16,11 @@ jobs:
     - name: Install Surge
       run: |
         npm install --global surge
-        surge --version  # Verifica que surge se haya instalado correctamente
+        surge --version  # Verifica que surge esté instalado
 
     - name: Surge login
       run: |
-        surge login --token ${{ secrets.SURGE_TOKEN }}  # Login explícito usando el token
+        surge login --token ${{ secrets.SURGE_TOKEN }}  # Login usando el token
 
     - name: Deploy to Surge
-      run: surge --project ./ --domain ${{ secrets.SURGE_SUBDOMAIN }}.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+      run: surge --project ./ --domain ${{ secrets.SURGE_SUBDOMAIN }} --token $SURGE_TOKEN
