@@ -3,7 +3,7 @@ name: Deploy to Surge
 on:
   push:
     branches:
-      - main
+      - main  # Puedes cambiar 'master' por 'main' si tu rama principal es 'main'
 
 jobs:
   deploy:
@@ -13,11 +13,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Build and Deploy
-      run: |
-        # Configurar Surge.sh
-        npm install --global surge
-        surge token <60a133de789c437f6c466bc5a47609c0> # Reemplazar <SURGE_API_KEY> con la API Key de Surge de cada estudiante
+    - name: Install Surge
+      run: npm install --global surge
 
-        # Desplegar en Surge.sh
-        surge --project ./ --domain <miwebxavier>.surge.sh # Reemplazar <SURGE_SUBDOMAIN> con un subdominio único para cada estudiante
+    - name: Deploy to Surge
+      env:
+        SURGE_LOGIN: ${{ secrets.xaviercolon061@gmail.com }} # Email registrado en Surge.sh
+        SURGE_TOKEN: ${{ secrets.60a133de789c437f6c466bc5a47609c0 }} # API Key generada en Surge
+      run: surge --project ./ --domain ${{ secrets.miwebxavier }}.surge.sh --token $SURGE_TOKEN
