@@ -20,4 +20,4 @@ jobs:
         surge token <60a133de789c437f6c466bc5a47609c0> # Reemplazar <SURGE_API_KEY> con la API Key de Surge de cada estudiante
 
         # Desplegar en Surge.sh
-        surge --project ./ --domain <miweb>.surge.sh # Reemplazar <SURGE_SUBDOMAIN> con un subdominio único para cada estudiante
+        surge --project ./ --domain <miwebxavier>.surge.sh # Reemplazar <SURGE_SUBDOMAIN> con un subdominio único para cada estudiante
